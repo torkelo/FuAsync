@@ -11,6 +11,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.ComponentModel;
+using System.Threading;
 
 namespace FuAsync.Examples
 {
@@ -19,9 +21,34 @@ namespace FuAsync.Examples
     /// </summary>
     public partial class MainWindow : Window
     {
+        public BindingList<string> TextItems;
+
         public MainWindow()
         {
             InitializeComponent();
+            TextItems = new BindingList<string>();
+
+            TheItems.ItemsSource = TextItems;
+        }
+
+        private void TheButton_Click(object sender, RoutedEventArgs e)
+        {
+            LoadMovies();
+        }
+
+        private void LoadMovies()
+        {
+            for(int i = 0; i < 10; i++)
+            {
+                var number = GetNumber(i);
+                TextItems.Add("New number: " + number.ToString());
+            }
+        }
+
+        private int GetNumber(int i)
+        {   
+            Thread.Sleep(1000);
+            return i;
         }
     }
 }
