@@ -40,6 +40,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FuA.cs" />
+    <Compile Include="Futures\BackgroundFuture.cs" />
+    <Compile Include="Futures\FutureSequence.cs" />
+    <Compile Include="IFuture.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -13,6 +13,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.ComponentModel;
 using System.Threading;
+using FuAsync.Futures;
 
 namespace FuAsync.Examples
 {
@@ -33,22 +34,29 @@ namespace FuAsync.Examples
 
         private void TheButton_Click(object sender, RoutedEventArgs e)
         {
-            LoadMovies();
+            var result = LoadMovies();
+            var futureSeq = new FutureSequence(result.GetEnumerator());
+            futureSeq.Await(null);
         }
 
-        private void LoadMovies()
+        private IEnumerable<IFuture> LoadMovies()
         {
             for(int i = 0; i < 10; i++)
             {
-                var number = GetNumber(i);
-                TextItems.Add("New number: " + number.ToString());
+                var number = GetNumberAsync(i);
+                yield return number;
+                TextItems.Add("New number: " + number.Value);
             }
         }
 
-        private int GetNumber(int i)
+        private IFuture<int> GetNumberAsync(int i)
         {   
-            Thread.Sleep(1000);
-            return i;
+            return FuA.DoInBackground<int>(() => {
+
+                Thread.Sleep(1000);
+                return i;  
+
+            });
         }
     }
 }
