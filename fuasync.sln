@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FuAsync", "src\FuAsync\FuAsync.csproj", "{21936200-398D-4DF8-A404-AE9336145F7C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FuAsync.Examples", "FuAsync.Examples\FuAsync.Examples.csproj", "{282CD913-EC31-4366-BE1D-58075EA01E82}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FuAsync.Examples", "src\FuAsync.Examples\FuAsync.Examples.csproj", "{282CD913-EC31-4366-BE1D-58075EA01E82}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
