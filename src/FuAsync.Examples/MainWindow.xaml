@@ -1,0 +1,11 @@
+﻿<Window x:Class="FuAsync.Examples.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <StackPanel>
+            <Button x:Name="TheButton" Click="TheButton_Click">Click</Button> 
+            <ItemsControl x:Name="TheItems" />
+        </StackPanel>
+    </Grid>
+</Window>
